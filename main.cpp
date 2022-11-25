@@ -1,16 +1,11 @@
-#include "Playground.h"
-#include "macro.h"
-
-#include <iostream>
 #include <SFML/Graphics.hpp>
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(WINDOW_SIZE_X, WINDOW_SIZE_Y), "SFML works!");
-    Playground pg;
+    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    sf::CircleShape shape(100.f);
+    shape.setFillColor(sf::Color::White);
 
-    pg.load();
-        
     while (window.isOpen())
     {
         sf::Event event;
@@ -21,11 +16,7 @@ int main()
         }
 
         window.clear();
-        for (int i = 0; i < WINDOW_SIZE_Y / SIZE_TILE; i++) {
-            for (int j = 0; j < WINDOW_SIZE_X / SIZE_TILE; j++) {
-                window.draw(pg.GetSprite(i, j));
-            }
-        }
+        window.draw(shape);
         window.display();
     }
 
